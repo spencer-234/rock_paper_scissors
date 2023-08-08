@@ -30,6 +30,7 @@ function game() {
     let playerWins = 0;
     let computerWins = 0;
     for (let i = 0; i < 5; i++) {
+        let computerSelection = getComputerChoice();
         let round = playRound(playerSelection, computerSelection);
         if ((round === "You win! Rock beats scissors.") || (round === "You win! Paper beats rock.") || (round === "You win! Scissors beats paper.")) {
             playerWins++;
@@ -50,10 +51,13 @@ function game() {
 };
 
 // get input from user
-let playerSelection;
-let playerChoices = ["rock", "paper", "scissors"];
-while (playerChoices.indexOf(playerSelection) === -1) {
-    playerSelection = prompt("Select 'rock', 'paper', or 'scissors': ").toLowerCase();
-}
+function getPlayerChoice() {
+    let playerChoice;
+    let playerChoices = ["rock", "paper", "scissors"];
+    while (playerChoices.indexOf(playerChoice) === -1) {
+        playerChoice = prompt("Select 'rock', 'paper', or 'scissors': ").toLowerCase();
+    }
+    return playerChoice;
+};
 
-let computerSelection = getComputerChoice();
+game();
