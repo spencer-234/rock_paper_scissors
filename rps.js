@@ -1,12 +1,13 @@
+let playerSelection;
+let computerSelection;
 // get input from user
-function getPlayerChoice() {
-    let playerChoice;
-    let playerChoices = ["rock", "paper", "scissors"];
-    while (playerChoices.indexOf(playerChoice) === -1) {
-        playerChoice = prompt("Select 'rock', 'paper', or 'scissors': ").toLowerCase();
-    }
-    return playerChoice;
-};
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        playerSelection = button.textContent.toLowerCase();
+        console.log(playerSelection);
+    });
+});
 
 // get computer choice
 function getComputerChoice() {
@@ -36,31 +37,3 @@ function playRound(playerSelection, computerSelection) {
 };
 
 // loop 5 times and declare winner
-function game() {
-    let playerWins = 0;
-    let computerWins = 0;
-    for (let i = 0; i < 5; i++) {
-        playerSelection = getPlayerChoice();
-        computerSelection = getComputerChoice();
-        let round = playRound(playerSelection, computerSelection);
-        if ((round === "You win! Rock beats scissors.") || (round === "You win! Paper beats rock.") || (round === "You win! Scissors beats paper.")) {
-            playerWins++;
-        } else if (round === "It's a tie!") {
-            computerWins += 0;
-        } else {
-            computerWins++;
-        }
-    }
-    
-    if (playerWins > computerWins) {
-        return "You Win!";
-    } else if (playerWins < computerWins) {
-        return "You lose!";
-    } else {
-        return "It's a tie!";
-    }
-};
-
-let playerSelection;
-let computerSelection;
-game();
