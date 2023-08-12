@@ -1,11 +1,15 @@
 let playerSelection;
 let computerSelection;
+let playerWins = 0;
+let computerWins = 0;
 // get input from user
 const buttons = document.querySelectorAll('button');
+const results = document.querySelector('.container')
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         playerSelection = button.textContent.toLowerCase();
-        console.log(playerSelection);
+        computerSelection = getComputerChoice();
+        results.textContent = playRound(playerSelection, computerSelection);
     });
 });
 
@@ -20,16 +24,22 @@ function getComputerChoice() {
 // compare two choices to declare winner
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerWins++
         return "You win! Rock beats scissors.";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
+        playerWins++
         return "You win! Paper beats rock.";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        playerWins++
         return "You win! Scissors beats paper.";
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
+        computerWins++
         return "You lose! Rock beats scissors.";
     } else if (computerSelection === "paper" && playerSelection === "rock") {
+        computerWins++
         return "You lose! Paper beats rock.";
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
+        computerWins++
         return "You lose! Scissors beats paper.";
     } else {
         return "It's a tie!";
