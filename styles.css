@@ -3,6 +3,6 @@ body, html {
 }
 
 body {
-    background-image: url(./img/mountain.jpg);
+    background-image: url(./img/background.jpg);
     background-size: cover;
 }
