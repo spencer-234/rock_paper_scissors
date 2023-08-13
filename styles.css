@@ -5,4 +5,16 @@ body, html {
 body {
     background-image: url(./img/background.jpg);
     background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.choice {
+    background: none;
+    border: none;
+}
+
+.choice > img{
+    width: 100px;
+    height: 100px;
 }

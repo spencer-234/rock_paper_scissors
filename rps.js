@@ -3,14 +3,15 @@ let computerSelection;
 let playerWins = 0;
 let computerWins = 0;
 // get input from user
-const buttons = document.querySelectorAll('button');
-const results = document.querySelector('.container');
+const choice = document.querySelectorAll('.choice');
+const results = document.querySelector('.result');
 const score = document.querySelector('.score');
 const winner = document.querySelector('.winner');
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        playerSelection = button.textContent.toLowerCase();
+choice.forEach(choice => {
+    choice.addEventListener('click', () => {
+        playerSelection = choice.id;
+        console.log(playerSelection);
         computerSelection = getComputerChoice();
         results.textContent = playRound(playerSelection, computerSelection);
         score.textContent = `${playerWins} - ${computerWins}`;
