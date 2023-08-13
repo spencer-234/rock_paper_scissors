@@ -4,12 +4,17 @@ let playerWins = 0;
 let computerWins = 0;
 // get input from user
 const buttons = document.querySelectorAll('button');
-const results = document.querySelector('.container')
+const results = document.querySelector('.container');
+const score = document.querySelector('.score');
+const winner = document.querySelector('.winner');
+
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         playerSelection = button.textContent.toLowerCase();
         computerSelection = getComputerChoice();
         results.textContent = playRound(playerSelection, computerSelection);
+        score.textContent = `${playerWins} - ${computerWins}`;
+        checkScore();
     });
 });
 
@@ -46,4 +51,11 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
-// loop 5 times and declare winner
+// check score function
+function checkScore() {
+    if (playerWins === 5) {
+        winner.textContent = 'You Won!';
+    } else if (computerWins === 5) {
+        winner.textContent = 'You Lose!';
+    }
+};
