@@ -7,11 +7,11 @@ const choice = document.querySelectorAll('.choice');
 const results = document.querySelector('.result');
 const score = document.querySelector('.score');
 const winner = document.querySelector('.winner');
+const title = document.querySelector('.title');
 
 choice.forEach(choice => {
     choice.addEventListener('click', () => {
         playerSelection = choice.id;
-        console.log(playerSelection);
         computerSelection = getComputerChoice();
         results.textContent = playRound(playerSelection, computerSelection);
         score.textContent = `${playerWins} - ${computerWins}`;
@@ -22,7 +22,7 @@ choice.forEach(choice => {
 // get computer choice
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
-    let choice= choices[Math.floor(Math.random() * choices.length)];
+    let choice = choices[Math.floor(Math.random() * choices.length)];
     return choice;
 };
 
@@ -55,8 +55,8 @@ function playRound(playerSelection, computerSelection) {
 // check score function
 function checkScore() {
     if (playerWins === 5) {
-        winner.textContent = 'You Won!';
+        alert("You Win!");
     } else if (computerWins === 5) {
-        winner.textContent = 'You Lose!';
+        alert("You Lose!");
     }
 };
