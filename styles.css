@@ -29,6 +29,7 @@ body, html {
     align-items: center;
     margin: 0;
     padding: 0;
+    font-size: 30px;
 }
 
 .playbuttons {
@@ -36,7 +37,7 @@ body, html {
     height: 200px;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 200px;
 }
 
 .choice {
@@ -54,7 +55,27 @@ body, html {
     transform: scale(1.1);
 }
 
-.choice > img {
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 30px;
+    height: 200px;
+
+}
+
+.choice > img,
+#com-choice > img,
+#player-choice > img {
     width: 150px;
     height: 150px;
+}
+
+#com-choice,
+#player-choice {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 2em;
 }

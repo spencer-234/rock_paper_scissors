@@ -9,10 +9,17 @@ const score = document.querySelector('.score');
 const winner = document.querySelector('.winner');
 const title = document.querySelector('.title');
 
+const comChoice = document.querySelector('#com-choice');
+const comImg = document.createElement('img');
+
+const playerChoice = document.querySelector('#player-choice');
+const playerImg = document.createElement('img');
+
 choice.forEach(choice => {
     choice.addEventListener('click', () => {
         playerSelection = choice.id;
         computerSelection = getComputerChoice();
+        showComChoice();
         results.textContent = playRound(playerSelection, computerSelection);
         score.textContent = `${playerWins} - ${computerWins}`;
         checkScore();
@@ -58,5 +65,40 @@ function checkScore() {
         alert("You Win!");
     } else if (computerWins === 5) {
         alert("You Lose!");
+    }
+};
+
+// display image of computer choice
+function showComChoice () {
+    switch (computerSelection) {
+        case 'rock':
+            comImg.setAttribute('src', './img/rock.png');
+            comChoice.appendChild(comImg);
+            break;
+        case 'paper':
+            comImg.setAttribute('src', './img/paper.png');
+            comChoice.appendChild(comImg);
+            break;
+        case 'scissors':
+            comImg.setAttribute('src', './img/scissors.png');
+            comChoice.appendChild(comImg);
+            break;
+        
+    }
+
+    switch (playerSelection) {
+        case 'rock':
+            playerImg.setAttribute('src', './img/rock.png');
+            playerChoice.appendChild(playerImg);
+            break;
+        case 'paper':
+            playerImg.setAttribute('src', './img/paper.png');
+            playerChoice.appendChild(playerImg);
+            break;
+        case 'scissors':
+            playerImg.setAttribute('src', './img/scissors.png');
+            playerChoice.appendChild(playerImg);
+            break;
+        
     }
 };
