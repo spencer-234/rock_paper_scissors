@@ -62,9 +62,16 @@ function playRound(playerSelection, computerSelection) {
 // check score function
 function checkScore() {
     if (playerWins === 5) {
-        alert("You Win!");
+        alert("You Win! Refresh to play again!");
+        choice.forEach(choice => {
+            choice.disabled = true;
+        })
     } else if (computerWins === 5) {
-        alert("You Lose!");
+        alert("You Lose! Refresh to play again!");
+        choice.forEach(choice => {
+            choice.disabled = true;
+            choice.classList.add('no-events');
+        })
     }
 };
 
