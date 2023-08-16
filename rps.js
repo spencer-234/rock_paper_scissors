@@ -80,14 +80,17 @@ function showComChoice () {
     switch (computerSelection) {
         case 'rock':
             comImg.setAttribute('src', './img/rock.png');
+            comImg.setAttribute('alt', 'rock');
             comChoice.appendChild(comImg);
             break;
         case 'paper':
             comImg.setAttribute('src', './img/paper.png');
+            comImg.setAttribute('alt', 'paper');
             comChoice.appendChild(comImg);
             break;
         case 'scissors':
             comImg.setAttribute('src', './img/scissors.png');
+            comImg.setAttribute('alt', 'scissors');
             comChoice.appendChild(comImg);
             break;
         
@@ -96,14 +99,17 @@ function showComChoice () {
     switch (playerSelection) {
         case 'rock':
             playerImg.setAttribute('src', './img/rock.png');
+            playerImg.setAttribute('alt', 'rock');
             playerChoice.appendChild(playerImg);
             break;
         case 'paper':
             playerImg.setAttribute('src', './img/paper.png');
+            playerImg.setAttribute('alt', 'paper');
             playerChoice.appendChild(playerImg);
             break;
         case 'scissors':
             playerImg.setAttribute('src', './img/scissors.png');
+            playerImg.setAttribute('alt', 'scissors');
             playerChoice.appendChild(playerImg);
             break;
         
