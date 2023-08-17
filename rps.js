@@ -143,4 +143,4 @@ function reset() {
         choice.disabled = false;
         choice.classList.remove('no-events');
     })
-}
+};
