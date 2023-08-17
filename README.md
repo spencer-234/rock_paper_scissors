@@ -18,4 +18,4 @@ This is my rock paper scissors project as practice with JavaScript.<br>
     </li>
 </ul>
 <br>
-Live site: <a href="https://spencer-234.github.io/rock_paper_scissors/" rel="noopener noreferrer">Rock Paper Scissors</a>
+Live site: waiting for new link.
