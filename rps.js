@@ -6,7 +6,6 @@ let computerWins = 0;
 const choice = document.querySelectorAll('.choice');
 const results = document.querySelector('.result');
 const score = document.querySelector('.score');
-const winner = document.querySelector('.winner');
 const title = document.querySelector('.title');
 
 const comChoice = document.querySelector('#com-choice');
@@ -14,6 +13,13 @@ const comImg = document.createElement('img');
 
 const playerChoice = document.querySelector('#player-choice');
 const playerImg = document.createElement('img');
+
+const alertBtn = document.querySelector('.alert');
+const winner = document.querySelector('.winner');
+const resetBtn = document.querySelector('#reset');
+
+const choiceDisplay = document.querySelector('.choices');
+
 
 choice.forEach(choice => {
     choice.addEventListener('click', () => {
@@ -25,6 +31,8 @@ choice.forEach(choice => {
         checkScore();
     });
 });
+
+resetBtn.addEventListener('click', reset);
 
 // get computer choice
 function getComputerChoice() {
@@ -62,12 +70,18 @@ function playRound(playerSelection, computerSelection) {
 // check score function
 function checkScore() {
     if (playerWins === 5) {
-        alert("You Win! Refresh to play again!");
+        choiceDisplay.style.display = 'none';
+        winner.textContent = 'Congratulations! You Won!';
+        alertBtn.style.backgroundColor = 'gold';
+        alertBtn.style.display = 'flex';
         choice.forEach(choice => {
             choice.disabled = true;
         })
     } else if (computerWins === 5) {
-        alert("You Lose! Refresh to play again!");
+        choiceDisplay.style.display = 'none';
+        winner.textContent = 'You Lost!';
+        alertBtn.style.backgroundColor = 'red';
+        alertBtn.style.display = 'flex';
         choice.forEach(choice => {
             choice.disabled = true;
             choice.classList.add('no-events');
@@ -115,3 +129,18 @@ function showComChoice () {
         
     }
 };
+
+function reset() {
+    playerWins = 0;
+    computerWins = 0;
+    score.textContent = `${playerWins} - ${computerWins}`;
+    alertBtn.style.display = 'none';
+    choiceDisplay.style.display = 'flex';
+    comChoice.removeChild(comImg);
+    playerChoice.removeChild(playerImg);
+    results.textContent = "";
+    choice.forEach(choice => {
+        choice.disabled = false;
+        choice.classList.remove('no-events');
+    })
+}
